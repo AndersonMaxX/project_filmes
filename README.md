@@ -1,98 +1,142 @@
-<h1 align="center">🎥 Project Filmes</h1>
+# 🎬 Catálogo de Filmes — Flutter + API (MockAPI)
 
-<p align="center">
-  <em>Aplicativo Flutter para explorar e descobrir filmes com um design moderno e fluido.</em>
-</p>
-
-<p align="center">
-  <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/Framework-Flutter-blue?logo=flutter" alt="Flutter"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
-  <img src="https://img.shields.io/badge/status-Em%20Desenvolvimento-yellow" alt="Status">
-  <img src="https://img.shields.io/github/last-commit/AndersonMaxX/project_filmes" alt="Last Commit">
-</p>
+Aplicativo desenvolvido em **Flutter** com integração a uma **API REST (MockAPI)** para gerenciamento de um catálogo de filmes.  
+Permite **cadastrar, editar, listar, visualizar e excluir filmes** de forma dinâmica e conectada à nuvem.
 
 ---
 
-## 🎬 Sobre o Projeto
+## 🚀 Funcionalidades
 
-O **Project Filmes** é um aplicativo mobile desenvolvido em **Flutter**, com o objetivo de listar e exibir informações sobre filmes.  
-O app pode ser integrado a uma API externa (como TMDB) para obter dados de forma dinâmica, exibindo:
-- Pôster do filme  
-- Título, gênero, avaliação e descrição  
-- Tela de detalhes com sinopse e elenco  
-
-O projeto foi criado com foco em **aprendizado prático** e **boas práticas de arquitetura Flutter**.
-
----
-
-## ⚙️ Funcionalidades
-
-- 🔍 Pesquisa de filmes  
-- 🎞️ Listagem com imagens e informações  
-- ⭐ Avaliação e detalhes  
-- ❤️ Opção de favoritar filmes  
-- 📱 Layout responsivo (Android e iOS)
+✅ **Listar filmes** — Exibe todos os filmes vindos da API  
+✅ **Cadastrar filme** — Permite adicionar novos filmes com validação  
+✅ **Editar filme** — Atualiza os dados de um filme existente  
+✅ **Ver detalhes** — Mostra informações completas sobre um filme  
+✅ **Excluir filme** — Remove um filme da API com confirmação  
+✅ **Validação de campos** — Impede salvar filmes com campos vazios  
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-
-- [Flutter](https://flutter.dev/)  
-- [Dart](https://dart.dev/)  
-- [HTTP](https://pub.dev/packages/http) – para requisições REST  
-- [Provider](https://pub.dev/packages/provider) – gerenciamento de estado  
-- [Google Fonts](https://pub.dev/packages/google_fonts)
-
----
-
-## 🚀 Como Executar o Projeto
-
-### Pré-requisitos:
-- [Flutter SDK](https://flutter.dev/docs/get-started/install) instalado  
-- Android Studio ou VS Code configurado  
-- Emulador Android/iOS ou dispositivo físico conectado  
-
-### Passos:
+## 🧩 Estrutura do Projeto
 ```bash
-# Clone este repositório
-git clone https://github.com/AndersonMaxX/project_filmes.git
-
-# Acesse a pasta do projeto
-cd project_filmes
-
-# Baixe as dependências
-flutter pub get
-
-# Execute o aplicativo
-flutter run
-🧠 Aprendizados
-Durante o desenvolvimento do Project Filmes, foram explorados:
-
-Estruturação modular de projetos Flutter
-
-Consumo de APIs REST
-
-Reatividade com Provider
-
-Componentização e uso de Widgets customizados
-
-Navegação entre telas
-
-Boas práticas de design (Material Design)
-
-📸 Screenshots
-Tela Inicial	Detalhes do Filme
-
-💡 Adicione suas imagens na pasta assets/screenshots/ e atualize os nomes acima.
-
-👨‍💻 Autor
-Anderson Max
-📍 Estudante de Análise e Desenvolvimento de Sistemas
-💼 Estagiário na Fábrica de Software da Unimed João Pessoa
+lib/
+│
+├── controllers/
+│ └── filme_controller.dart → Lógica de negócio e validação
+│
+├── model/
+│ └── filme.dart → Estrutura de dados do filme
+│
+├── services/
+│ └── filmes_api.dart → Comunicação com a API via Dio
+│
+├── views/
+│ ├── home_screen.dart → Tela inicial (lista de filmes)
+│ ├── cadastrar_filme.dart → Tela de cadastro
+│ ├── editar_filme.dart → Tela de edição
+│ └── detalhes_filme.dart → Tela de detalhes do filme
+│
+└── main.dart → Ponto de entrada do app
 ```
-• [Linkedin](https://www.linkedin.com/in/andersonmax-frontend/)
+---
 
-📝 Licença
+## 🧠 Arquitetura MVC
+
+| Camada | Função |
+|--------|--------|
+| **Model** | Define a estrutura dos dados (`Filme`) |
+| **Controller** | Faz a validação e controla as ações (`FilmeController`) |
+| **View** | Telas do aplicativo (`views/`) |
+| **Service** | Comunicação com a API (`FilmesApi`) |
+
+Essa separação facilita manutenção, testes e entendimento do fluxo do app.
+
+---
+
+## ⚙️ Tecnologias Utilizadas
+
+| Tecnologia | Função |
+|-------------|--------|
+| **Flutter** | Framework principal para o app |
+| **Dart** | Linguagem de programação |
+| **Dio** | Biblioteca para requisições HTTP |
+| **Flutter Rating Bar** | Exibição das estrelas de avaliação |
+| **MockAPI.io** | API REST gratuita usada como backend |
+
+---
+
+## 🌐 API — MockAPI.io
+
+Base URL:
+https://690ca78aa6d92d83e84ebd32.mockapi.io/filmes/filmes
+
+| Método | Endpoint | Descrição |
+|---------|-----------|-----------|
+| `GET` | `/` | Lista todos os filmes |
+| `GET` | `/{id}` | Busca um filme pelo ID |
+| `POST` | `/` | Cadastra um novo filme |
+| `PUT` | `/{id}` | Atualiza um filme existente |
+| `DELETE` | `/{id}` | Remove um filme |
+
+---
+
+
+## 🧰 Como Executar o Projeto
+
+### 1️⃣ Clone o repositório
+```bash
+git clone https://github.com/AndersonMaxX/project_filmes.git
+```
+### 2️⃣ Acesse a pasta do projeto
+```bash
+cd project_filmes
+```
+### 3️⃣ Instale as dependências
+```bash
+flutter pub get
+```
+### 4️⃣ Execute o aplicativo
+```bash
+flutter run
+```
+
+## 💡 Conceitos Aplicados
+
+* Estrutura MVC
+
+* Consumo de API REST com Dio
+
+* Validação de formulários no Controller
+
+* Uso de SnackBars e AlertDialogs para feedback ao usuário
+
+* Tratamento de erros e verificação de conexão
+
+* Comunicação entre telas com Navigator.push / Navigator.pop
+
+* Exibição de imagens da web com Image.network
+
+## 🎨 Layout e UX
+
+O app segue o padrão Material Design, com:
+
+* 🎨 Cores principais: Azul e Branco
+
+* ⭐ Avaliação visual com estrelas: RatingBarIndicator
+
+* 📱 Interface responsiva e com rolagem: SingleChildScrollView
+
+* 🟢 Botões flutuantes arredondados (FAB) para ações principais
+
+## 👨‍💻 Autor
+
+Anderson Max
+Curso: Análise e Desenvolvimento de Sistemas — UNIPÊ
+João Pessoa - PB
+
+GitHub: https://github.com/AndersonMaxX
+
+LinkedIn: https://www.linkedin.com/in/andersonmax-frontend/
+
+## 📝 Licença
+
 Este projeto está licenciado sob a MIT License.
-
-<p align="center">💬 “O aprendizado vem com a prática. Continue codando!”</p>
