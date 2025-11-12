@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/AndersonMaxX/project_filmes/main/assets/banner.png" width="100%" alt="Banner Project Filmes">
-</p>
-
 <h1 align="center">🎥 Project Filmes</h1>
 
 <p align="center">
